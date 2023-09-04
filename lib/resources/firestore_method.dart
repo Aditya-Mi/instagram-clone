@@ -49,6 +49,7 @@ class FirestoreMethods {
     }
   }
 
+  //post comment
   Future<String> postComment(String postId, String text, String uid,
       String username, String profPic) async {
     String res = "Some error occurred";
@@ -74,6 +75,18 @@ class FirestoreMethods {
       }
     } catch (e) {
       res = e.toString();
+    }
+    return res;
+  }
+
+  // delete post
+  Future<String> deletePost(String postId) async {
+    String res = "Some error occurred";
+    try {
+      await _firestore.collection('posts').doc(postId).delete();
+      res = 'success';
+    } catch (err) {
+      res = err.toString();
     }
     return res;
   }
