@@ -36,16 +36,16 @@ class _AddPostScreenState extends State<AddPostScreen> {
         setState(() {
           _isPosting = false;
         });
-        showSnackBar("Posted!", context);
+        if (context.mounted) showSnackBar("Posted!", context);
         clearImage();
       } else {
         setState(() {
           _isPosting = false;
         });
-        showSnackBar(res, context);
+        if (context.mounted) showSnackBar(res, context);
       }
     } catch (e) {
-      showSnackBar(e.toString(), context);
+      if (context.mounted) showSnackBar(e.toString(), context);
     }
   }
 

@@ -56,16 +56,18 @@ class _SignUpScreenState extends State<SignUpScreen> {
       _isLoading = false;
     });
     if (res != 'success') {
-      showSnackBar(res, context);
+      if (context.mounted) showSnackBar(res, context);
     } else {
-      Navigator.of(context).pushReplacement(
-        MaterialPageRoute(
-          builder: (context) => const ResponsiveLayout(
-            webScreenLayout: WebScreenLayout(),
-            mobileScreenLayout: MobileScreenLayout(),
+      if (context.mounted) {
+        Navigator.of(context).pushReplacement(
+          MaterialPageRoute(
+            builder: (context) => const ResponsiveLayout(
+              webScreenLayout: WebScreenLayout(),
+              mobileScreenLayout: MobileScreenLayout(),
+            ),
           ),
-        ),
-      );
+        );
+      }
     }
   }
 
