@@ -1,4 +1,3 @@
-import 'dart:typed_data';
 import 'package:flutter/foundation.dart';
 import 'package:uuid/uuid.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -44,9 +43,7 @@ class FirestoreMethods {
         });
       }
     } catch (e) {
-      print(
-        e.toString(),
-      );
+      if (kDebugMode) print(e.toString());
     }
   }
 
