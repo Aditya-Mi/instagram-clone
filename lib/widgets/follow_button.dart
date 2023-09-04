@@ -27,6 +27,8 @@ class FollowButton extends StatelessWidget {
             borderRadius: BorderRadius.circular(5),
           ),
           alignment: Alignment.center,
+          width: 230,
+          height: 27,
           child: Text(
             text,
             style: TextStyle(
@@ -34,8 +36,6 @@ class FollowButton extends StatelessWidget {
               fontWeight: FontWeight.bold,
             ),
           ),
-          width: 230,
-          height: 27,
         ),
       ),
     );
